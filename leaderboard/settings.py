@@ -31,7 +31,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
+        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
     ),
     'NON_FIELD_ERRORS_KEY': 'error',
     'EXCEPTION_HANDLER': 'apiapp.utils.custom_exception_handler'
@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'apiapp',
     'rest_framework',
     'webpack_loader',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (

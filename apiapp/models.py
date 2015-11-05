@@ -60,8 +60,6 @@ class MyUser(AbstractBaseUser):
     state = models.CharField(max_length=64, null=True)
     city = models.CharField(max_length=64, null=True)
     country = models.CharField(max_length=64, null=True)
-    latitude = models.DecimalField(max_digits=10, decimal_places=3, null=True)
-    longitude = models.DecimalField(max_digits=10, decimal_places=3, null=True)
 
     # profile_picture = models.CharField(max_length=128, null=True)
 

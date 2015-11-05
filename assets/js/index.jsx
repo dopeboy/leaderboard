@@ -9,22 +9,7 @@ import LoginStore from './stores/LoginStore.js'
 import AuthService from './services/AuthService'
 import '!style!css!less!./index.less';
 
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Home from './components/Home/Home';
-import About from './components/About/About';
-import Features from './components/Features/Features';
-import Pricing from './components/Pricing/Pricing';
-import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService/TermsOfService';
-import Login from './components/Login/Login';
-import SignUp from './components/SignUp/SignUp';
-import Dashboard from './components/Dashboard/Dashboard';
-import PatientSignup from './components/PatientSignup/PatientSignup.js';
-import PhysicanSignup from './components/PhysicianSignup/PhysicianSignup.js';
-import PhysicianProfile from './components/PhysicianProfile/PhysicianProfile.js';
-import EditPhysicianProfile from './components/EditPhysicianProfile/EditPhysicianProfile.js';
-import PatientProfile from './components/PatientProfile/PatientProfile.js';
+import List from './components/List/List';
 
 export default class App extends React.Component {
 	constructor() {
@@ -80,28 +65,6 @@ export default class App extends React.Component {
 	}
 }
 
-export default class HeaderContentFooter extends React.Component {
-	render() { 
-		return (
-			<div>
-				<Header 
-				userLoggedIn={this.props.userLoggedIn} 
-				user={this.props.user} 
-				logout={this.props.logout} />
-					<Helmet
-						titleTemplate="mundaii - %s"
-						meta={[
-							{"name": "description", "content": "Helmet application"},
-							{"property": "og:type", "content": "article"}
-						]}
-					/>
-					<RouteHandler/>
-				<Footer />
-			</div>
-		)
-	}
-}
-
 export default class FullSizeContainer extends React.Component {
 	render() { 
 		return (
@@ -124,40 +87,8 @@ export default class PaddedContainer extends React.Component {
 
 var routes = (
   <Route name="app" path="/" handler={App}>
-	  <Route handler={HeaderContentFooter}>
-		  <Route handler={FullSizeContainer}>
-			  <Route name="dashboard" path="dashboard" handler={Dashboard}>
-			  </Route>
-			  <DefaultRoute handler={Home} name="home"/>
-		  </Route>
-		  <Route name="features" path="features" handler={Features}>
-		  </Route>
-		  <Route name="features-medical-providers" path="features#medical-providers" handler={Features}>
-		  </Route>
-		  <Route name="pricing" path="pricing" handler={Pricing}>
-		  </Route>
-		  <Route name="privacy-policy" path="privacy-policy" handler={PrivacyPolicy}>
-		  </Route>
-		  <Route name="terms-of-service" path="terms-of-service" handler={TermsOfService}>
-		  </Route>
-		  <Route name="about" path="about" handler={About}>
-		  </Route>
-		  <Route handler={PaddedContainer}>
-			  <Route name="physician-profile" path="physician-profile/:userID" handler={PhysicianProfile}>
-			  </Route>
-			  <Route name="edit-physician-profile" path="edit-physician-profile/:userID" handler={EditPhysicianProfile}>
-			  </Route>
-			  <Route name="patient-profile" path="patient-profile/:userID" handler={PatientProfile}>
-			  </Route>
-		  </Route>
-	  </Route>
-	  <Route name="login" path="login" handler={Login}>
-	  </Route>
-	  <Route name="signup" path="signup" handler={SignUp}>
-	  </Route>
-	  <Route name="physician-signup" path="physicians/signup" handler={PhysicanSignup}>
-	  </Route>
-	  <Route name="patient-signup" path="patients/signup" handler={PatientSignup}>
+	  <Route handler={FullSizeContainer}>
+		  <DefaultRoute handler={List} name="list"/>
 	  </Route>
   </Route>
 );
@@ -180,11 +111,6 @@ var router = Router.create({
     }
 });
 RouterContainer.set(router);
-
-let jwt = localStorage.getItem('jwt');
-if (jwt) {
-	LoginActions.loginUser(jwt);
-}
 
 router.run(function (Handler) {
 	React.render(<Handler data={$('script#app-data').text()}/>, document.getElementById('react-app'));
