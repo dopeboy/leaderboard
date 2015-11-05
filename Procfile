@@ -1,2 +1,2 @@
-web: gunicorn mundaii.wsgi --log-file - 
+web: gunicorn leaderboard.wsgi --log-file - 
 
