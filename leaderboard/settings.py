@@ -153,6 +153,6 @@ SHELL_PLUS_PRE_IMPORTS = (
     ('pprint', '*'),
 )
 
-STATIC_URL = '/assets/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, "static"))
 
