@@ -4,7 +4,7 @@ from rest_framework.routers import SimpleRouter
 from apiapp import views
 
 router = SimpleRouter(trailing_slash=False)
-# router.register(r'candidates', views.PatientViewSet)
+router.register(r'candidates', views.CandidateViewSet)
 
 urlpatterns = patterns(
     '',
@@ -12,5 +12,5 @@ urlpatterns = patterns(
     url(r'^$', views.NoDataView.as_view()),  # root
     # url(r'^api-token-auth', 'rest_framework_jwt.views.obtain_jwt_token'),
     # url(r'^api-token-refresh', 'rest_framework_jwt.views.refresh_jwt_token'),
-    url(r'^admin', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 )

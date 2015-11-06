@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 import uuid
 from json import JSONEncoder
 from uuid import UUID
@@ -35,11 +35,13 @@ class MyUserManager(BaseUserManager):
         user = self.create_user(email, password=password,
                                 first_name=first_name, last_name=last_name)
         user.is_admin = True
+        user.is_staff = True
+        user.is_superuser = True
         user.save(using=self._db)
         return user
 
 
-class MyUser(AbstractBaseUser):
+class MyUser(AbstractBaseUser, PermissionsMixin):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4,
                             editable=False)
     first_name = models.CharField(max_length=32)
@@ -53,13 +55,14 @@ class MyUser(AbstractBaseUser):
 
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
 
     objects = MyUserManager()
 
-    address = models.CharField(max_length=128, null=True)
-    state = models.CharField(max_length=64, null=True)
-    city = models.CharField(max_length=64, null=True)
-    country = models.CharField(max_length=64, null=True)
+    address = models.CharField(max_length=128, blank=True)
+    state = models.CharField(max_length=64, blank=True)
+    city = models.CharField(max_length=64, blank=True)
+    country = models.CharField(max_length=64, blank=True)
 
     # profile_picture = models.CharField(max_length=128, null=True)
 
@@ -82,6 +85,11 @@ class MyUser(AbstractBaseUser):
 
 class Candidate(models.Model):
     user = models.OneToOneField(MyUser, unique=True)
+    rank = models.IntegerField()
+    current_company = models.CharField(max_length=128, blank=True)
+    current_title = models.CharField(max_length=256, blank=True)
+    visible = models.BooleanField(default=True)
+
 
 JSONEncoder_olddefault = JSONEncoder.default
 
