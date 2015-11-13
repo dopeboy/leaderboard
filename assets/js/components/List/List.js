@@ -43,7 +43,7 @@ export default class List extends React.Component {
 	}
 
 	render() { 
-		var formClasses = "ui text container large form" + (this.state.candidates == null ? " loading" : "");
+		var formClasses = "ui container large form" + (this.state.candidates == null ? " loading" : "");
 
 		return (
 		<div id='list-component'>
