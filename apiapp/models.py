@@ -91,19 +91,17 @@ class Candidate(models.Model):
     current_title = models.CharField(max_length=256, blank=True)
     visible = models.BooleanField(default=True)
 
-    password_view_seen_timestamp = models.DateTimeField(blank=True)
-    password_submitted_timestamp = models.DateTimeField(blank=True)
-    accomplishments_view_seen_timestamp =\
-        models.DateTimeField(blank=True)
+    password_view_seen_timestamp = models.DateTimeField(blank=True, null=True)
+    password_submitted_timestamp = models.DateTimeField(blank=True, null=True)
     accomplishments_submitted_timestamp =\
-        models.DateTimeField(blank=True)
+        models.DateTimeField(blank=True, null=True)
 
     STATUS = (
             ('SL', 'Secretly looking'),
             ('JL', 'Just looking')
     )
 
-    year_in_school = models.CharField(max_length=2, choices=STATUS)
+    status = models.CharField(max_length=2, choices=STATUS, blank=True)
 
     def __str__(self):
         return self.user.first_name + ' ' + self.user.last_name + ', ' \
