@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import \
+        BaseUserManager, AbstractBaseUser, PermissionsMixin
 import uuid
 from json import JSONEncoder
 from uuid import UUID
@@ -89,7 +90,21 @@ class Candidate(models.Model):
     current_company = models.CharField(max_length=128, blank=True)
     current_title = models.CharField(max_length=256, blank=True)
     visible = models.BooleanField(default=True)
-    
+
+    password_view_seen_timestamp = models.DateTimeField(blank=True)
+    password_submitted_timestamp = models.DateTimeField(blank=True)
+    accomplishments_view_seen_timestamp =\
+        models.DateTimeField(blank=True)
+    accomplishments_submitted_timestamp =\
+        models.DateTimeField(blank=True)
+
+    STATUS = (
+            ('SL', 'Secretly looking'),
+            ('JL', 'Just looking')
+    )
+
+    year_in_school = models.CharField(max_length=2, choices=STATUS)
+
     def __str__(self):
         return self.user.first_name + ' ' + self.user.last_name + ', ' \
                 + self.current_company + ', ' + self.current_title
@@ -103,5 +118,3 @@ def JSONEncoder_newdefault(self, o):
         return str(o)
     return JSONEncoder_olddefault(self, o)
 JSONEncoder.default = JSONEncoder_newdefault
-
-# Create your models here.

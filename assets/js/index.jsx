@@ -10,6 +10,7 @@ import AuthService from './services/AuthService'
 import '!style!css!less!./index.less';
 
 import List from './components/List/List';
+import Claim from './components/Claim/Claim'
 
 export default class App extends React.Component {
 	constructor() {
@@ -89,6 +90,8 @@ var routes = (
   <Route name="app" path="/" handler={App}>
 	  <Route handler={FullSizeContainer}>
 		  <DefaultRoute handler={List} name="list"/>
+		  <Route name="claim" path="claim/:user_id" handler={Claim}>
+		  </Route>
 	  </Route>
   </Route>
 );
