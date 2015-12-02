@@ -8,6 +8,7 @@ from apiapp.serializers import CandidateSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import detail_route
 import datetime
+import json
 
 
 class NoDataView(TemplateView):
@@ -58,6 +59,19 @@ class CandidateViewSet(mixins.RetrieveModelMixin,
         queryset = Candidate.objects.all()
         candidate = get_object_or_404(queryset, user=user)
         candidate.password_submitted_timestamp = datetime.datetime.now()
+        candidate.save()
+        serializer = CandidateSerializer(candidate)
+        return Response(serializer.data)
+
+    @detail_route(methods=['post'])
+    def accomplishments(self, request, pk=None):
+        queryset = MyUser.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        queryset = Candidate.objects.all()
+        candidate = get_object_or_404(queryset, user=user)
+        candidate.accomplishments_submitted_timestamp = datetime.datetime.now()
+        candidate.status = request.data['status']
+        candidate.accomplishments = request.data['accomplishments']
         candidate.save()
         serializer = CandidateSerializer(candidate)
         return Response(serializer.data)
