@@ -26,10 +26,10 @@ export default class List extends React.Component {
 					return [
 						<tr>
 							<td>
-								<h2 className="ui center aligned header">{s.rank}</h2>
+								<h1 className="ui center aligned header">{s.rank}</h1>
 							</td>
 							<td className="single line">
-								{s.user.first_name + " " + s.user.last_name}
+								<h2>{s.user.first_name + " " + s.user.last_name}</h2>
 							</td>
 							<td>
 								{s.current_company}
@@ -51,22 +51,47 @@ export default class List extends React.Component {
 			<div className="ui inverted vertical masthead center aligned segment">
 				<div className="ui text container">
 					<h1 className="ui inverted header">
-						Topshelf
+						Leaderboard: Email Marketers
 					</h1>
-					<h2>The top 25 email marketers in New York City.</h2>
+					<h2>Meet the elite professionals pushing the boundaries of the email marketing industry.</h2>
+				</div>
+				<div id="selling-points" className="ui relaxed center aligned grid">
+					<div className="four wide column">
+						<i className="huge checkmark icon"></i>
+						<div className="selling-point">
+							<h3>Top 3%</h3>
+							<h4>We've selected professionals who have succeeded in their jobs at the highest levels of performance.</h4>
+						</div>
+					</div>
+					<div className="four wide column">
+						<i className="huge filter icon"></i>
+						<div className="selling-point">
+							<h3>Multiple data sources</h3>
+							<h4>We go beyond the resume and evaluate the full picture. We look at success and quality of execution in each role, and how much the job function contributed to company success.</h4>
+						</div>
+					</div>
+					<div className="four wide column">
+						<i className="huge remove circle icon"></i>
+						<div className="selling-point">
+							<h3>Objective</h3>
+							<h4>We use criteria designed for each job role and standardized across list members. We rely heavily on verified third party data.</h4>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="list" className={formClasses}>
-				<table className="ui large celled padded table">
+				<table className="ui large very basic padded table">
 					<thead>
-						<tr><th className="single line center aligned">Rank</th>
-							<th className="center aligned">Name</th>
-							<th className="center aligned" >Current Company</th>
-							<th className="center aligned" >Current Job Title</th>
-						</tr></thead>
-						<tbody>
+						<tr>
+							<th className="two wide center aligned"></th>
+							<th className="four wide center aligned"></th>
+							<th className="four wide center aligned"></th>
+							<th className="six wide center aligned"></th>
+						</tr>
+					</thead>
+					<tbody>
 						{this.state.candidates}
-						</tbody>
+					</tbody>
 				</table>
 			</div>
 		</div>

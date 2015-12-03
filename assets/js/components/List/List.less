@@ -1,8 +1,19 @@
 #list-component
 {
+	@font-face {
+		font-family: myLato;
+		src: url(https://fonts.googleapis.com/css?family=Lato);
+	}
+
+	@font-face {
+		font-family: myArapey;
+		src: url(https://fonts.googleapis.com/css?family=Arapey);
+	}
+
 	.masthead.segment {
 		min-height: 250px;
 		padding: 1em 0em;
+		color: white;
 	}
 	.masthead .logo.item img {
 		margin-right: 1em;
@@ -13,15 +24,37 @@
 	.masthead h1.ui.header {
 		margin-top: 0.6em;
 		margin-bottom: 0em;
-		font-size: 4em;
+		font-size: 3.5em;
 		font-weight: normal;
+		font-family: myLato;
 	}
 	.masthead h2 {
-		font-size: 1.7em;
+		font-size: 1.5em;
 		font-weight: normal;
+		font-family: myArapey;
+	}
+
+	#selling-points {
+		margin-top: 20px;
+		padding-bottom: 10px;
+
+		h3 {
+			margin-top: 10px;
+			font-size: 24px;;
+		}
+
+		h4 {
+			font-weight: normal;
+		}
+
+		.selling-point * {
+			font-family: myArapey;
+		}
+
 	}
 
 	#list {
 		margin-top: 2em;
+		font-family: myArapey;
 	}
 }
