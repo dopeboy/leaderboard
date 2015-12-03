@@ -94,6 +94,22 @@ export default class List extends React.Component {
 					</tbody>
 				</table>
 			</div>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<div id="send-nom-div" className="ui center aligned grid">
+				<div className="eight wide column">
+					<div className="ui raised segment">
+					  <p>Know someone who deserves to be on this list? <button id="send-nom-btn" className="ui blue small button">Send a nomination</button> </p>
+					</div>
+				</div>
+			</div>
+			<div id="methodology-div" className="ui center aligned grid">
+				<div className="eight wide column">
+					For more about our methodlogy, read here.
+				</div>
+			</div>
 		</div>
 		)
 	}
