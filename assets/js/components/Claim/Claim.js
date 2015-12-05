@@ -154,7 +154,7 @@ export default class Claim extends React.Component {
 		<div>
 			<div id="nakedheader-component" className="ui middle aligned center aligned grid">
 				<div className="column">
-					<h1>Leaderboard</h1>
+					<h1>Leaderboard: Email Marketers</h1>
 				</div>
 			</div>
 			<div ref="claimDiv" id="claim-component">
