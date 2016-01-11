@@ -34,7 +34,8 @@ module.exports = {
   node: {
 	    fs: "empty",
 		child_process: 'empty',
-		connect: 'empty'
+		connect: 'empty',
+		tls: 'empty'
   },
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components'],
