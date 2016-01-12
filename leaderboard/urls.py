@@ -4,14 +4,14 @@ from rest_framework.routers import SimpleRouter
 from apiapp import views
 
 router = SimpleRouter(trailing_slash=False)
-router.register(r'candidates', views.CandidateViewSet)
+router.register(r'candidates', views.CandidateViewSet, 'Candidate')
+router.register(r'lists', views.ListViewSet, 'List')
 
 urlpatterns = patterns(
     '',
     url(r'^', include(router.urls)),
     url(r'^$', views.NoDataView.as_view()),  # root
-    # url(r'^api-token-auth', 'rest_framework_jwt.views.obtain_jwt_token'),
-    # url(r'^api-token-refresh', 'rest_framework_jwt.views.refresh_jwt_token'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^claim', views.NoDataView.as_view())
+    url(r'^claim', views.NoDataView.as_view()),
+    url(r'^(?P<location>).+/(?P<list_name>.+)$', views.NoDataView.as_view()),
 )

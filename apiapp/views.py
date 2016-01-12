@@ -1,19 +1,32 @@
 from django.views.generic import TemplateView
 from django.conf import settings
-from apiapp.models import Candidate, MyUser
+from apiapp.models import Candidate, MyUser, List
 from rest_framework.permissions import AllowAny
 from rest_framework import viewsets, mixins
 from rest_framework.response import Response
-from apiapp.serializers import CandidateSerializer
+from apiapp.serializers import CandidateSerializer, ListSerializer
 from django.shortcuts import get_object_or_404
-from rest_framework.decorators import detail_route
+from rest_framework.decorators import detail_route, list_route
 import datetime
-import json
 
 
 class NoDataView(TemplateView):
     template_name = settings.DEFAULT_INDEX_PATH
 
+
+class ListViewSet(viewsets.GenericViewSet):
+    serializer_class = ListSerializer
+    permission_classes = (AllowAny,)
+    model = List
+
+    @list_route()
+    def search(self, request, pk=None):
+        queryset = List.objects.all()
+        location = self.request.query_params.get('location', None)
+        list_name = self.request.query_params.get('list_name', None)
+        list = get_object_or_404(queryset, location=location, name=list_name)
+        serializer = ListSerializer(list)
+        return Response(serializer.data)
 
 class CandidateViewSet(mixins.RetrieveModelMixin,
                        mixins.UpdateModelMixin,
@@ -21,15 +34,27 @@ class CandidateViewSet(mixins.RetrieveModelMixin,
                        viewsets.GenericViewSet):
     serializer_class = CandidateSerializer
     permission_classes = (AllowAny,)
-    queryset = Candidate.objects.all()
     model = Candidate
 
-    def list(self, request, *args, **kwargs):
-        candidates = Candidate.objects.all().filter(
-                user__is_active=True).filter(
-                        visible=True).order_by('rank')
-        serializer = CandidateSerializer(candidates, many=True)
-        return Response(serializer.data)
+    def get_queryset(self):
+        queryset = Candidate.objects.all().filter(
+                user__is_active=True, visible=True).order_by('rank')
+        location = self.request.query_params.get('location', None)
+        if location is not None:
+            queryset = queryset.filter(list__location=location)
+        list_name = self.request.query_params.get('list_name', None)
+        if list_name is not None:
+            queryset = queryset.filter(list__name=list_name)
+        return queryset
+
+    # def list(self, request, *args, **kwargs):
+    #     print(123)
+    #     candidates = Candidate.objects.all().filter(
+    #             user__is_active=True).filter(
+    #                     visible=True).order_by('rank')
+    #     serializer = CandidateSerializer(candidates, many=True)
+    #     return Response(serializer.data)
+
 
     def retrieve(self, request, pk):
         queryset = MyUser.objects.all()

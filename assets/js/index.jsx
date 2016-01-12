@@ -11,6 +11,7 @@ import '!style!css!less!./index.less';
 
 import List from './components/List/List';
 import Claim from './components/Claim/Claim'
+import Home from './components/Home/Home'
 
 export default class App extends React.Component {
 	constructor() {
@@ -89,9 +90,9 @@ export default class PaddedContainer extends React.Component {
 var routes = (
   <Route name="app" path="/" handler={App}>
 	  <Route handler={FullSizeContainer}>
-		  <DefaultRoute handler={List} name="list"/>
-		  <Route name="claim" path="claim/:user_id" handler={Claim}>
-		  </Route>
+		  <Route name="claim" path="claim/:user_id" handler={Claim} />
+		  <Route name="list" path=":location/:list_name" handler={List} />
+		  <DefaultRoute handler={Home} name="home"/>
 	  </Route>
   </Route>
 );

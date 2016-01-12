@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from apiapp.models import MyUser, Candidate
+from apiapp.models import MyUser, Candidate, List
 from django.core.exceptions import ValidationError
 
 
 class UserSerializer(serializers.ModelSerializer):
     user_uuid = serializers.UUIDField(read_only=True, source='uuid')
-    email_address = serializers.EmailField(source='email')
+    email_address = serializers.EmailField(source='email', write_only=True)
 
     class Meta:
         model = MyUser
@@ -28,3 +28,12 @@ class CandidateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Candidate
         fields = ('user', 'rank', 'current_company', 'current_title')
+
+
+class ListSerializer(serializers.ModelSerializer):
+    title = serializers.CharField()
+    description = serializers.CharField()
+
+    class Meta:
+        model = List
+        fields = ('title', 'description')

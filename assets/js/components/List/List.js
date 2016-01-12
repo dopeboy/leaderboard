@@ -2,29 +2,69 @@ import '!style!css!less!./List.less';
 import React from 'react';
 import {Routehandler, Link} from 'react-router';
 import Helmet from 'react-helmet';
+import RouterContainer from '../../services/RouterContainer'
 
 export default class List extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			candidates: null
+			candidates: null,
+			list_data: null
 		}
 	}
 
 	componentDidMount() {
-		$.get('/candidates', function(result) {
+		$.get('/lists/search?location=' + this.props.params.location + "&list_name=" + this.props.params.list_name, function(result) {
 			this.setState({
-				candidates: this.processCandidates(result)
+				list_data: result
 			});
 		}.bind(this));
+
+		var user_id = RouterContainer.get().getCurrentQuery().user_id 
+		
+		$.get('/candidates?location=' + this.props.params.location + "&list_name=" + this.props.params.list_name, function(result) {
+			this.setState({
+				candidates: this.processCandidates(result, user_id),
+			});
+
+			// Smooth scroll down
+			if (user_id != null) {
+				$('html, body').animate({
+					scrollTop: $("#" + user_id).offset().top
+				}, 2000);
+			}
+		}.bind(this));
+
 	}
 
-	processCandidates(candidates_data) {
+	componentDidUpdate() {
+	}
+
+	handleClaimClick(user_id, e) {
+		e.preventDefault();
+		RouterContainer.get().transitionTo('/claim/' + user_id);
+	}
+
+
+	// If the user_id is not null, show the button and 
+	// deemphasize everything else
+	processCandidates(candidates_data, user_id) {
 		return (
 				candidates_data.map(function(s, i) {
+					var claim_button = null;
+					var blurred = "";
+
+					if (user_id != null) {
+						if (s.user.user_uuid == user_id)
+						claim_button = <a onClick={this.handleClaimClick.bind(this, user_id)} href="#" className="ui blue button large">Claim</a>;
+
+						else
+							blurred = "blurred";
+					}
+
 					return [
-						<tr>
+						<tr id={s.user.user_uuid} className={blurred}>
 							<td>
 								<h1 className="ui center aligned header">{s.rank}</h1>
 							</td>
@@ -37,13 +77,16 @@ export default class List extends React.Component {
 							<td className="">
 								{s.current_title}
 							</td>
+							<td className="">
+								{claim_button}
+							</td>
 						</tr>
 					]
-				}))
+				}.bind(this)))
 	}
 
 	render() { 
-		var formClasses = "ui container large form" + (this.state.candidates == null ? " loading" : "");
+		var formClasses = "ui container large form" + (this.state.candidates == null || this.state.list_data == null ? " loading" : "");
 
 		return (
 		<div id='list-component'>
@@ -51,9 +94,9 @@ export default class List extends React.Component {
 			<div className="ui inverted vertical masthead center aligned segment">
 				<div className="ui text container">
 					<h1 className="ui inverted header">
-						Leaderboard: Email Marketers
+						Leaderboard: {this.state.list_data == null ? "" : this.state.list_data.title}
 					</h1>
-					<h2>Meet the elite professionals pushing the boundaries of the email marketing industry.</h2>
+					<h2>{this.state.list_data == null ? "" : this.state.list_data.description}</h2>
 				</div>
 				<div id="selling-points" className="ui relaxed center aligned grid">
 					<div className="four wide column">
@@ -86,7 +129,8 @@ export default class List extends React.Component {
 							<th className="two wide center aligned"></th>
 							<th className="four wide center aligned"></th>
 							<th className="four wide center aligned"></th>
-							<th className="six wide center aligned"></th>
+							<th className="three wide center aligned"></th>
+							<th className="three wide center aligned"></th>
 						</tr>
 					</thead>
 					<tbody>

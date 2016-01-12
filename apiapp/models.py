@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import \
-        BaseUserManager, AbstractBaseUser, PermissionsMixin
+    BaseUserManager, AbstractBaseUser, PermissionsMixin
 import uuid
 from json import JSONEncoder
 from uuid import UUID
@@ -65,8 +65,6 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     city = models.CharField(max_length=64, blank=True)
     country = models.CharField(max_length=64, blank=True)
 
-    # profile_picture = models.CharField(max_length=128, null=True)
-
     join_date = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = 'email'
@@ -84,11 +82,25 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
+class List(models.Model):
+    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4,
+                            editable=False)
+    name = models.CharField(max_length=32)
+    title = models.CharField(max_length=256)
+    description = models.CharField(max_length=256)
+    location = models.CharField(max_length=32)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.location + ' | ' + self.name
+
+
 class Candidate(models.Model):
     user = models.OneToOneField(MyUser, unique=True)
     rank = models.IntegerField()
     current_company = models.CharField(max_length=128, blank=True)
     current_title = models.CharField(max_length=256, blank=True)
+    list = models.ForeignKey(List)
     visible = models.BooleanField(default=True)
 
     password_view_seen_timestamp = models.DateTimeField(blank=True, null=True)
@@ -97,16 +109,19 @@ class Candidate(models.Model):
         models.DateTimeField(blank=True, null=True)
 
     STATUS = (
-            ('SL', 'Secretly looking'),
-            ('JL', 'Just looking')
+        ('SL', 'Secretly looking'),
+        ('JL', 'Just looking')
     )
 
     status = models.CharField(max_length=2, choices=STATUS, blank=True)
     accomplishments = models.TextField(blank=True, null=True)
 
+    class Meta:
+        unique_together = ('rank', 'list')
+
     def __str__(self):
         return self.user.first_name + ' ' + self.user.last_name + ', ' \
-                + self.current_company + ', ' + self.current_title
+            + self.current_company + ', ' + self.current_title
 
 
 JSONEncoder_olddefault = JSONEncoder.default

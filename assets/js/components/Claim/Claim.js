@@ -119,6 +119,7 @@ export default class Claim extends React.Component {
 	}
 
 	handleKeyDown(event) { 
+        console.log(event.keyCode);
 		if (event.nativeEvent.keyCode == 8 || event.nativeEvent.keyCode == 13) {
 			if ($(event.target).find('li').first()[0].innerHTML === "<br>")
 				event.preventDefault();
@@ -139,7 +140,7 @@ export default class Claim extends React.Component {
 				accomplishments.push(element.innerText);
 		}
 
-		this.setState({html: event.target.innerHTML, accomplishments: accomplishments})
+		this.setState({accomplishments: accomplishments})
 	}
 
 
@@ -163,7 +164,7 @@ export default class Claim extends React.Component {
 						<form id="password" className={formClasses}>
 							<div className="ui stacked segment" >
 								<div className="ui huge header" >
-									<div className="content">{first_name}, claim your profile</div>
+									<div id="claim-your" className="content">{first_name}, claim your profile</div>
 								</div>
 								<div className="field">
 									<div className="ui big left icon input" >
