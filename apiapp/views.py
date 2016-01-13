@@ -28,17 +28,17 @@ class ListViewSet(viewsets.GenericViewSet):
         serializer = ListSerializer(list)
         return Response(serializer.data)
 
-class CandidateViewSet(mixins.RetrieveModelMixin,
-                       mixins.UpdateModelMixin,
-                       mixins.ListModelMixin,
-                       viewsets.GenericViewSet):
+
+class CandidateViewSet(
+        mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
+        mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = CandidateSerializer
     permission_classes = (AllowAny,)
     model = Candidate
 
     def get_queryset(self):
         queryset = Candidate.objects.all().filter(
-                user__is_active=True, visible=True).order_by('rank')
+            user__is_active=True, visible=True).order_by('rank')
         location = self.request.query_params.get('location', None)
         if location is not None:
             queryset = queryset.filter(list__location=location)
@@ -55,7 +55,6 @@ class CandidateViewSet(mixins.RetrieveModelMixin,
     #     serializer = CandidateSerializer(candidates, many=True)
     #     return Response(serializer.data)
 
-
     def retrieve(self, request, pk):
         queryset = MyUser.objects.all()
         user = get_object_or_404(queryset, pk=pk)
@@ -71,6 +70,17 @@ class CandidateViewSet(mixins.RetrieveModelMixin,
         queryset = Candidate.objects.all()
         candidate = get_object_or_404(queryset, user=user)
         candidate.password_view_seen_timestamp = datetime.datetime.now()
+        candidate.save()
+        serializer = CandidateSerializer(candidate)
+        return Response(serializer.data)
+
+    @detail_route(methods=['get'])
+    def preclaimviewseen(self, request, pk=None):
+        queryset = MyUser.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        queryset = Candidate.objects.all()
+        candidate = get_object_or_404(queryset, user=user)
+        candidate.preclaim_view_seen = datetime.datetime.now()
         candidate.save()
         serializer = CandidateSerializer(candidate)
         return Response(serializer.data)

@@ -103,6 +103,7 @@ class Candidate(models.Model):
     list = models.ForeignKey(List)
     visible = models.BooleanField(default=True)
 
+    preclaim_view_seen = models.DateTimeField(blank=True, null=True)
     password_view_seen_timestamp = models.DateTimeField(blank=True, null=True)
     password_submitted_timestamp = models.DateTimeField(blank=True, null=True)
     accomplishments_submitted_timestamp =\

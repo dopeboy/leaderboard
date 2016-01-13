@@ -12,6 +12,8 @@ import '!style!css!less!./index.less';
 import List from './components/List/List';
 import Claim from './components/Claim/Claim'
 import Home from './components/Home/Home'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 export default class App extends React.Component {
 	constructor() {
@@ -70,9 +72,13 @@ export default class App extends React.Component {
 export default class FullSizeContainer extends React.Component {
 	render() { 
 		return (
-			<div id="full-size-container">
-				<RouteHandler/>
-			</div>
+                <div>
+                    <Header />
+                    <div className="ui main container" id="full-size-container">
+                        <RouteHandler/>
+                    </div>
+                    <Footer />
+                </div>
 		)
 	}
 }

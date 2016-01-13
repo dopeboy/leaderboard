@@ -33,9 +33,13 @@ export default class List extends React.Component {
 				$('html, body').animate({
 					scrollTop: $("#" + user_id).offset().top
 				}, 2000);
+
+				$.get('/candidates/' + user_id + '/preclaimviewseen', function(result) {
+				}.bind(this));
 			}
 		}.bind(this));
 
+		$(React.findDOMNode(this.refs.methodologyModal)).modal({detachable: false});
 	}
 
 	componentDidUpdate() {
@@ -45,7 +49,6 @@ export default class List extends React.Component {
 		e.preventDefault();
 		RouterContainer.get().transitionTo('/claim/' + user_id);
 	}
-
 
 	// If the user_id is not null, show the button and 
 	// deemphasize everything else
@@ -57,7 +60,7 @@ export default class List extends React.Component {
 
 					if (user_id != null) {
 						if (s.user.user_uuid == user_id)
-						claim_button = <a onClick={this.handleClaimClick.bind(this, user_id)} href="#" className="ui blue button large">Claim</a>;
+						claim_button = <a onClick={this.handleClaimClick.bind(this, user_id)} href="#" className="ui blue button large">Claim my profile</a>;
 
 						else
 							blurred = "blurred";
@@ -69,15 +72,15 @@ export default class List extends React.Component {
 								<h1 className="ui center aligned header">{s.rank}</h1>
 							</td>
 							<td className="single line">
-								<h2>{s.user.first_name + " " + s.user.last_name}</h2>
+								<h2 className="ui center aligned header">{s.user.first_name + " " + s.user.last_name}</h2>
 							</td>
-							<td>
+							<td className="center aligned">
 								{s.current_company}
 							</td>
-							<td className="">
+							<td className="center aligned">
 								{s.current_title}
 							</td>
-							<td className="">
+							<td className="center aligned">
 								{claim_button}
 							</td>
 						</tr>
@@ -85,76 +88,101 @@ export default class List extends React.Component {
 				}.bind(this)))
 	}
 
+	handleMethodologyClick(e) {
+		e.preventDefault();
+		$(React.findDOMNode(this.refs.methodologyModal)).modal('show');
+	}
+
 	render() { 
-		var formClasses = "ui container large form" + (this.state.candidates == null || this.state.list_data == null ? " loading" : "");
+		var formClasses = "ui form" + (this.state.candidates == null || this.state.list_data == null ? " loading" : "");
 
 		return (
-		<div id='list-component'>
-			<Helmet title="Leaderboard" />
-			<div className="ui inverted vertical masthead center aligned segment">
-				<div className="ui text container">
-					<h1 className="ui inverted header">
-						Leaderboard: {this.state.list_data == null ? "" : this.state.list_data.title}
-					</h1>
-					<h2>{this.state.list_data == null ? "" : this.state.list_data.description}</h2>
+		<form className={formClasses}>
+			<div id='list-component'>
+				<Helmet title="Leaderboard" />
+				<div className="ui vertical masthead center aligned ">
+					<div className="ui text container">
+						<h1 className="ui header center aligned ">
+							{this.state.list_data == null ? "" : this.state.list_data.title}
+						</h1>
+						<h2 className="ui header center aligned">
+							{this.state.list_data == null ? "" : this.state.list_data.description}
+						</h2>
+					</div>
+					<h4 className="ui header center aligned">
+						<a onClick={this.handleMethodologyClick.bind(this)} href="#" ref="methodology-link">Learn more about our ranking methodology</a>
+					</h4>
+					<div ref="methodologyModal" className="ui modal">
+					  <i className="close icon"></i>
+					  <div className="header">
+						Our methodology
+					  </div>
+					  <div className="content">
+							<div id="selling-points" className="ui relaxed center aligned grid">
+								<div className="four wide column">
+									<i className="huge checkmark icon"></i>
+									<div className="selling-point">
+										<h3>Top 3%</h3>
+										<h4>We've selected professionals who have succeeded in their jobs at the highest levels of performance.</h4>
+									</div>
+								</div>
+								<div className="four wide column">
+									<i className="huge filter icon"></i>
+									<div className="selling-point">
+										<h3>Multiple data sources</h3>
+										<h4>We go beyond the resume and evaluate the full picture. We look at success and quality of execution in each role, and how much the job function contributed to company success.</h4>
+									</div>
+								</div>
+								<div className="four wide column">
+									<i className="huge remove circle icon"></i>
+									<div className="selling-point">
+										<h3>Objective</h3>
+										<h4>We use criteria designed for each job role and standardized across list members. We rely heavily on verified third party data.</h4>
+									</div>
+								</div>
+							</div>
+					  </div>
+					  <div className="actions">
+						<div className="ui positive right button">
+						  Close
+						</div>
+					  </div>
+					</div>
 				</div>
-				<div id="selling-points" className="ui relaxed center aligned grid">
-					<div className="four wide column">
-						<i className="huge checkmark icon"></i>
-						<div className="selling-point">
-							<h3>Top 3%</h3>
-							<h4>We've selected professionals who have succeeded in their jobs at the highest levels of performance.</h4>
+				<div id="list" className="ui container large form">
+					<table className="ui large very padded table">
+						<thead>
+							<tr>
+								<th className="two wide center aligned">Rank</th>
+								<th className="four wide center aligned">Name</th>
+								<th className="four wide center aligned">Employer</th>
+								<th className="three wide center aligned">Title</th>
+								<th className="three wide center aligned"></th>
+							</tr>
+						</thead>
+						<tbody>
+							{this.state.candidates}
+						</tbody>
+					</table>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<div id="send-nom-div" className="ui center aligned grid">
+					<div className="eight wide column">
+						<div className="ui raised segment">
+						  <p>Know someone who deserves to be on this list? <button id="send-nom-btn" className="ui blue small button">Send a nomination</button> </p>
 						</div>
 					</div>
-					<div className="four wide column">
-						<i className="huge filter icon"></i>
-						<div className="selling-point">
-							<h3>Multiple data sources</h3>
-							<h4>We go beyond the resume and evaluate the full picture. We look at success and quality of execution in each role, and how much the job function contributed to company success.</h4>
-						</div>
-					</div>
-					<div className="four wide column">
-						<i className="huge remove circle icon"></i>
-						<div className="selling-point">
-							<h3>Objective</h3>
-							<h4>We use criteria designed for each job role and standardized across list members. We rely heavily on verified third party data.</h4>
-						</div>
+				</div>
+				<div id="methodology-div" className="ui center aligned grid">
+					<div className="eight wide column">
+						For more about our methodlogy, read here.
 					</div>
 				</div>
 			</div>
-			<div id="list" className={formClasses}>
-				<table className="ui large very basic padded table">
-					<thead>
-						<tr>
-							<th className="two wide center aligned"></th>
-							<th className="four wide center aligned"></th>
-							<th className="four wide center aligned"></th>
-							<th className="three wide center aligned"></th>
-							<th className="three wide center aligned"></th>
-						</tr>
-					</thead>
-					<tbody>
-						{this.state.candidates}
-					</tbody>
-				</table>
-			</div>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<div id="send-nom-div" className="ui center aligned grid">
-				<div className="eight wide column">
-					<div className="ui raised segment">
-					  <p>Know someone who deserves to be on this list? <button id="send-nom-btn" className="ui blue small button">Send a nomination</button> </p>
-					</div>
-				</div>
-			</div>
-			<div id="methodology-div" className="ui center aligned grid">
-				<div className="eight wide column">
-					For more about our methodlogy, read here.
-				</div>
-			</div>
-		</div>
+		</form>
 		)
 	}
 }
