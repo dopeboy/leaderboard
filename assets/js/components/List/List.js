@@ -101,7 +101,7 @@ export default class List extends React.Component {
 			<div id='list-component'>
 				<Helmet title="Leaderboard" />
 				<div className="ui vertical masthead center aligned ">
-					<div className="ui text container">
+					<div id="top-header" className="ui text container">
 						<h1 className="ui header center aligned ">
 							{this.state.list_data == null ? "" : this.state.list_data.title}
 						</h1>
