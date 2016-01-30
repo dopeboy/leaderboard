@@ -507,28 +507,6 @@
     },
     {
         "fields": {
-            "address": "",
-            "city": "",
-            "country": "",
-            "email": "super@super.com",
-            "first_name": "bob",
-            "groups": [],
-            "is_active": true,
-            "is_admin": true,
-            "is_staff": true,
-            "is_superuser": true,
-            "join_date": "2016-01-11T23:38:52.473Z",
-            "last_login": "2016-01-30T18:55:54.539Z",
-            "last_name": "jones",
-            "password": "pbkdf2_sha256$20000$uYE1ZPHraT3b$L1TKTqxsKcnPH5vcpid9o9y1dPHJAqSbynWcKdY/MQE=",
-            "state": "",
-            "user_permissions": []
-        },
-        "model": "apiapp.myuser",
-        "pk": "7f64e171-0dbe-4748-add9-e2396c7e2651"
-    },
-    {
-        "fields": {
             "address": " ",
             "city": " ",
             "country": " ",
