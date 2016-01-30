@@ -22,7 +22,7 @@ export default class Header extends React.Component {
 		return (
               <div id="header-component" className="ui inverted menu">
                 <div className="ui container">
-                  <a href="#" className="header item">
+                  <a id="logo-text" href="#" className="header item">
                     Leaderboard
                   </a>
                 </div>
