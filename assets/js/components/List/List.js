@@ -154,9 +154,9 @@ export default class List extends React.Component {
 						<thead>
 							<tr>
 								<th className="two wide center aligned">Rank</th>
-								<th className="four wide center aligned">Name</th>
+								<th className="three wide center aligned">Name</th>
 								<th className="four wide center aligned">Employer</th>
-								<th className="three wide center aligned">Title</th>
+								<th className="four wide center aligned">Title</th>
 								<th className="three wide center aligned"></th>
 							</tr>
 						</thead>

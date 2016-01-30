@@ -1,0 +1,704 @@
+[
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "CBSSports.com",
+            "current_title": "Senior Manager, Email Marketing & Operations",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 1,
+            "status": " ",
+            "user": "aee501e1-3bb9-4681-83c4-fe6126446e9a",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Hillary For America",
+            "current_title": "Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 2,
+            "status": " ",
+            "user": "c97be2a4-9c16-42d0-891b-8ce4bccb5045",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Blue Apron",
+            "current_title": "Senior Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 3,
+            "status": " ",
+            "user": "a3be223c-9b32-4dd8-a27a-b5c15f687fc8",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "AIG",
+            "current_title": "Email Marketing Manager - Digital Marketing Solutions",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 4,
+            "status": " ",
+            "user": "c41ae378-3987-4aa8-bc77-09e515b29582",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "DIRECTV",
+            "current_title": "Manager of Email and Mobile Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 5,
+            "status": " ",
+            "user": "0726451d-da0e-4388-914b-5439f8d8be6c",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "MetLife",
+            "current_title": "Senior Email Marketing Specialist",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 6,
+            "status": " ",
+            "user": "0967fb6e-ee51-4841-8e11-fbf40257d977",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Ziff Davis",
+            "current_title": "Director, Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 7,
+            "status": " ",
+            "user": "1d3bd138-bad0-49fa-9ecd-b7706f9503a1",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "FreshDirect",
+            "current_title": "Director, Customer Marketing & Loyalty",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 8,
+            "status": " ",
+            "user": "3038d8b4-5d2c-4297-929b-69370d7fa9c8",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "The Huffington Post",
+            "current_title": "Email Marketing Strategist",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 9,
+            "status": " ",
+            "user": "1c485509-6b7f-4d9a-b33a-9cc4b3714d85",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "WeWork",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 10,
+            "status": " ",
+            "user": "280a9f47-32a0-4514-b50c-f732a578c99c",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Etsy",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 11,
+            "status": " ",
+            "user": "52600c3f-4e1f-41a6-8d27-c37d008e36b2",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "The Children's Place",
+            "current_title": "Director, Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 12,
+            "status": " ",
+            "user": "c062c525-14e2-42db-a7c7-51cc7ca13c18",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Honest Company",
+            "current_title": "Manager, Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 13,
+            "status": " ",
+            "user": "ee3aabb6-252b-4bc0-a6d5-7ea77246f54a",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 13
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Paperless Post",
+            "current_title": "Marketing Manager, Email",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 14,
+            "status": " ",
+            "user": "dcc172d7-fa2e-412c-9c3b-c862459c0da5",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Food52",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 15,
+            "status": " ",
+            "user": "ea071fad-24d2-4327-b80b-9535a941ccda",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 15
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Ann Inc",
+            "current_title": "Marketing Manager, LOFTonline.com and LOFT email",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 16,
+            "status": " ",
+            "user": "12c1abc4-1380-4611-9c93-819112446947",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 16
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Tough Mudder",
+            "current_title": "Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 17,
+            "status": " ",
+            "user": "768744e2-52cc-4990-a5c9-17b2829c32e7",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 17
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Spotify",
+            "current_title": "Global Growth Marketing, Email",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 18,
+            "status": " ",
+            "user": "9bf376cd-d423-4990-a553-6967408bf91d",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 18
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "New York & Company",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 19,
+            "status": " ",
+            "user": "75f7abfc-47f1-4953-bac5-f6e5c43168b5",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 19
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Bare Necessities",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 20,
+            "status": " ",
+            "user": "170b69d3-1306-4008-a158-42a9ec101f48",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 20
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "The New York Times",
+            "current_title": "Sr. Manager, Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 21,
+            "status": " ",
+            "user": "71339adb-c91d-4ae4-b629-62ce66d2cc41",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 21
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Rutgers University Foundation",
+            "current_title": "Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 22,
+            "status": " ",
+            "user": "366d0610-2a80-485e-bf56-4318b519a76b",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 22
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Alex & Ani",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 23,
+            "status": " ",
+            "user": "09118541-dceb-400c-8c7c-2476522798be",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 23
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "The College Board",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 24,
+            "status": " ",
+            "user": "9cabd58d-9c8d-4e61-8786-d0ebfad40237",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 24
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "WWE",
+            "current_title": "Manager, Network Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 25,
+            "status": " ",
+            "user": "77544355-0c1b-4e2d-bd51-0ee226c88db4",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 25
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Century 21 Department Stores",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 26,
+            "status": " ",
+            "user": "03bdbe11-2de3-4247-aa23-021bf2178213",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 26
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Kickstarter",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 27,
+            "status": " ",
+            "user": "f76317fa-c540-43a7-bb42-9764b217b2f9",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 27
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Girl Scouts of the USA",
+            "current_title": "Senior Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 28,
+            "status": " ",
+            "user": "90bda9a6-58e1-4679-a071-ec11721bcfea",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 28
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "LeggMason",
+            "current_title": "Project Manager, Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 29,
+            "status": " ",
+            "user": "659a59b3-b7fe-47ba-8369-602b2ae7973b",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 29
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "1800flowers.com",
+            "current_title": "Email Operations Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 30,
+            "status": " ",
+            "user": "049c64d4-7614-464b-92a6-bd7b3c314218",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 30
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Harry's",
+            "current_title": "Senior Manager - Customer Retention and Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 31,
+            "status": " ",
+            "user": "83b286a0-e2ae-4b14-93f3-22c716f9aa98",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 31
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "FanDuel",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 32,
+            "status": " ",
+            "user": "30fa3a90-6152-4b54-bb95-2abdbade90bb",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 32
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Brooks Brothers",
+            "current_title": "Email Marketing",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 33,
+            "status": " ",
+            "user": "6807a389-f395-4513-b15b-3c57c14ae073",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 33
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Kenneth Cole",
+            "current_title": "Digital Marketing/Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 34,
+            "status": " ",
+            "user": "72a14238-e68d-45f7-889e-045583de4fd2",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 34
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Jewelry.com",
+            "current_title": "Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 35,
+            "status": " ",
+            "user": "2fabf527-d285-4bff-9116-2f7a4bdab4e9",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 35
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Yext",
+            "current_title": "Senior Marketing Manager, Email",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 36,
+            "status": " ",
+            "user": "0e45d5e5-0caa-4b8b-908e-60026c206b6a",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 36
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Casper",
+            "current_title": "CRM & Email Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 37,
+            "status": " ",
+            "user": "fb93e7ac-990d-4b60-b624-86292214bcca",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 37
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "Bluefly",
+            "current_title": "Assistant Marketing Manager",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 38,
+            "status": " ",
+            "user": "bc726ad7-8324-4831-a01d-9321a552c9ea",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 38
+    },
+    {
+        "fields": {
+            "accomplishments": null,
+            "accomplishments_submitted_timestamp": null,
+            "current_company": "FanDuel",
+            "current_title": "Email Marketing Specialist",
+            "list": "35989640-2b80-4834-a3aa-b2731bdfdcb3",
+            "password_submitted_timestamp": null,
+            "password_view_seen_timestamp": null,
+            "preclaim_view_seen": null,
+            "rank": 39,
+            "status": " ",
+            "user": "c2e73668-70dc-40d2-8da5-39b91849e1a5",
+            "visible": true
+        },
+        "model": "apiapp.candidate",
+        "pk": 39
+    }
+]

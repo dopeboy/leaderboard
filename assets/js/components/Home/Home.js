@@ -17,7 +17,9 @@ export default class Home extends React.Component {
 	}
 
 	componentDidMount() {
+		RouterContainer.get().transitionTo('/newyork/email-marketers');
 	}
+
 	render() { 
         return (
             <div>Leaderboard</div>
