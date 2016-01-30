@@ -15,6 +15,8 @@ export default class List extends React.Component {
 	}
 
 	componentDidMount() {
+        ga('send', 'pageview', this.props.params.listName);
+
 		$.get('/lists/search?location=' + this.props.params.location + "&list_name=" + this.props.params.list_name, function(result) {
 			this.setState({
 				list_data: result

@@ -42,6 +42,8 @@ export default class Claim extends React.Component {
 			onSuccess: this.handleValidForm.bind(this)
 		});
 
+        ga('send', 'pageview', this.props.params.user_id);
+
 		$.get('/candidates/' + this.props.params.user_id + '/passwordviewseen', function(result) {
 			this.setState({
 				candidate: result

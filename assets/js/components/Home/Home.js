@@ -17,6 +17,7 @@ export default class Home extends React.Component {
 	}
 
 	componentDidMount() {
+        ga('send', 'pageview', '/');
 		RouterContainer.get().transitionTo('/newyork/email-marketers');
 	}
 
