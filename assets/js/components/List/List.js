@@ -152,7 +152,7 @@ export default class List extends React.Component {
 					</div>
 				</div>
 				<div id="list" className="ui container large form">
-					<table className="ui large very padded table">
+					<table id="list-table" className="ui large very padded table">
 						<thead>
 							<tr>
 								<th className="two wide center aligned">Rank</th>
