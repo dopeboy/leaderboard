@@ -15,6 +15,15 @@ export default class List extends React.Component {
 	}
 
 	componentDidMount() {
+		$(React.findDOMNode(this.refs.listCategory)).dropdown({
+			onChange:function(value, text) {
+				// RouterContainer.get().transitionTo('/newyork/' + value);
+				window.location.href = '/newyork/' + value;
+			}
+		});
+		$(React.findDOMNode(this.refs.listCategory)).dropdown('set selected', this.props.params.list_name);
+		$(React.findDOMNode(this.refs.listLocation)).dropdown();
+
         ga('send', 'pageview', this.props.params.listName);
 
 		$.get('/lists/search?location=' + this.props.params.location + "&list_name=" + this.props.params.list_name, function(result) {
@@ -101,7 +110,7 @@ export default class List extends React.Component {
 		return (
 		<form className={formClasses}>
 			<div id='list-component'>
-				<Helmet title="Leaderboard" />
+				<Helmet title="LeaderRank" />
 				<div className="ui vertical masthead center aligned ">
 					<div id="top-header" className="ui text container">
 						<h1 className="ui header center aligned ">
@@ -152,6 +161,19 @@ export default class List extends React.Component {
 					</div>
 				</div>
 				<div id="list" className="ui container large form">
+				<div className="two fields">
+					<div className="two wide field">
+						<select ref="listCategory" id="category" className="ui dropdown">
+							<option value="email-marketers">Email marketers</option>
+							<option value="data-scientists">Data scientists</option>
+						</select>
+					</div>
+					<div id="list-location" className="one wide field">
+						<select ref="listLocation" className="ui dropdown">
+							<option selected value="new-york">New York</option>
+						</select>
+					</div>
+				</div>
 					<table id="list-table" className="ui large very padded table">
 						<thead>
 							<tr>

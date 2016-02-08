@@ -161,7 +161,15 @@ export default class Claim extends React.Component {
 						<form id="password" className={formClasses}>
 							<div className="ui stacked segment" >
 								<div className="ui huge header" >
-									<div id="claim-your" className="content">{first_name}, claim your profile</div>
+									<div id="claim-your" className="content">{first_name}, Claim your LeaderRank Profile!</div>
+								</div>
+								<div className="ui left aligned tiny header" >
+									<div id="" className="content">Our goal is to promote top-performing professionals, like you, at the top of their game. Claim your profile to:</div>
+									<ul>
+										<li>Improve your rank by adding more information to your profile</li>
+										<li>Generate awareness of your rank with top companies</li>
+										<li>Get help from us during your next salary negotiation</li>
+									</ul>
 								</div>
 								<div className="field">
 									<div className="ui big left icon input" >

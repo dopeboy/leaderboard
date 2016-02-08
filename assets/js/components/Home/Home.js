@@ -23,7 +23,7 @@ export default class Home extends React.Component {
 
 	render() { 
         return (
-            <div>Leaderboard</div>
+            <div>LeaderRank</div>
         )
 	}
 }
