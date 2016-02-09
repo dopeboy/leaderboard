@@ -16,7 +16,7 @@ export default class Claim extends React.Component {
 			password: '',
 			candidate: null,
 			html: '<ul ref="aaa" tabIndex="1" contentEditable="true"><li></li></ul>',
-			accomplishments: [],
+			accomplishments: null,
 			status: null
 		}
 	}
@@ -156,6 +156,10 @@ export default class Claim extends React.Component {
 		this.setState({accomplishments: accomplishments})
 	}
 
+	handleNextOpportunityChange(e) {
+		this.setState({accomplishments: e.target.value});
+	}
+
 
 	render() { 
 		var formClasses = "ui large form" + (this.state.candidate == null ? " loading" : "");
@@ -231,7 +235,7 @@ export default class Claim extends React.Component {
 									<br/>
 									<br/>
 									<div className="field">
-										<textarea rows="2"></textarea>
+										<textarea rows="2" onChange={this.handleNextOpportunityChange.bind(this)}>{this.state.accomplishments}</textarea>
 									</div>
 								</div>
 							</div>
