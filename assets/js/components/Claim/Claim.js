@@ -190,7 +190,7 @@ export default class Claim extends React.Component {
 								<div className="field">
 									<div className="ui big left icon input" >
 										<i className="lock icon"></i>
-										<input type="password" valueLink={this.linkState('password')} name="password" placeholder="Password"/>
+										<input type="password" valueLink={this.linkState('password')} name="password" placeholder="Create password"/>
 									</div>
 								</div>
 								<div className="ui fluid big green submit button" ref="claimButton">Claim</div>

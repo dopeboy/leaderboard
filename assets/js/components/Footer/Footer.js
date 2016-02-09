@@ -24,6 +24,8 @@ export default class Footer extends React.Component {
                   <div className="ui inverted vertical footer segment">
                     <div className="ui container">
                       <div className="ui stackable inverted grid">
+                        <div className="five wide column">
+                        </div>
                         <div className="three wide column">
                           <h4 className="ui inverted header">Company</h4>
                           <div className="ui inverted link list">
