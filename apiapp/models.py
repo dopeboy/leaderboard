@@ -110,8 +110,9 @@ class Candidate(models.Model):
         models.DateTimeField(blank=True, null=True)
 
     STATUS = (
-        ('SL', 'Secretly looking'),
-        ('JL', 'Just looking')
+        ('SL', 'Maybe'),
+        ('JL', 'Yes'),
+        ('NI', 'No')
     )
 
     status = models.CharField(max_length=2, choices=STATUS, blank=True)

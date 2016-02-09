@@ -17,7 +17,7 @@ export default class Claim extends React.Component {
 			candidate: null,
 			html: '<ul ref="aaa" tabIndex="1" contentEditable="true"><li></li></ul>',
 			accomplishments: [],
-			status: 'SL'
+			status: null
 		}
 	}
 
@@ -63,14 +63,25 @@ export default class Claim extends React.Component {
 		var justLookingRadio = $(React.findDOMNode(this.refs.justLookingRadio));
 		justLookingRadio.checkbox('enable');
 		justLookingRadio.checkbox('setting', 'onChecked', this.handleJustLooking.bind(this));
+
+		var notInterestedRadio = $(React.findDOMNode(this.refs.notInterestedRadio));
+		notInterestedRadio.checkbox('enable');
+		notInterestedRadio.checkbox('setting', 'onChecked', this.handleNotInterested.bind(this));
 	}
 
 	handleSecretlyLooking() {
+		$("#next-opportunity").show();
 		this.setState({status: 'SL'});
 	}
 
 	handleJustLooking() {
+		$("#next-opportunity").show();
 		this.setState({status: 'JL'});
+	}
+
+	handleNotInterested() {
+		$("#next-opportunity").hide();
+		this.setState({status: 'NI'});
 	}
 
 	submitAccomplishments() {
@@ -163,6 +174,7 @@ export default class Claim extends React.Component {
 								<div className="ui huge header" >
 									<div id="claim-your" className="content">{first_name}, Claim your LeaderRank Profile!</div>
 								</div>
+								<div className="ui divider"></div>
 								<div className="ui left aligned tiny header" >
 									<div id="" className="content">Our goal is to promote top-performing professionals, like you, at the top of their game. Claim your profile to:</div>
 									<ul>
@@ -184,48 +196,42 @@ export default class Claim extends React.Component {
 				</div>
 			</div>
 			<div ref="accomplishmentsDiv" className="hidden transition" id="accomplishments-component">
-				<div className="ui center aligned grid">
-					<div className="column">
+				<div className="ui grid">
+					<div id="finish-profile" className="column">
 						<div className="ui stacked segment" >
-							<div className="ui huge header" >
-								<div className="content">Accomplishments</div>
+							<div className="ui center aligned huge header" >
+								<div className="content">Finish your profile</div>
 							</div>
-							<div className="ui left aligned grid">
-								<div id="aa" className="ten wide column">
-									<p>Write yours below:</p>
-									<ContentEditable
-									 html={this.state.html} // innerHTML of the editable div 
-									 disabled={false}       // use true to disable edition 
-									 style={textareaStyle}
-									 onKeyDown={this.handleKeyDown.bind(this)} // handle innerHTML change 
-									 onKeyUp={this.handleChange.bind(this)}
-									 />
-								</div>
-								<div id="examples" className="six wide column">
-									<p>Examples:</p>
-									<div className="ui bulleted list">
-										<div className="item">Increased revenues in voluntary, group peditrician product 145 percent, doubling membership in 14 months.</div>
-										<div className="item">Won Profitability Achievement Award in 2009 and 2010, achieving 76.3 percent and 78.8 percent loss ratios respectively.</div>
-									</div>
-								</div>
-							</div>
-							<br/>
-							<br/>
 							<div className="ui divider"></div>
-							<div className="ui form">
-								<div className="inline fields">
-									<label id="job-label" >Are you looking for a job?</label>
-									<div className="field">
-										<div ref="secretLookingRadio" className="ui radio checkbox">
-											<input type="radio" name="frequency" checked={this.state.status == "SL" ? "checked" : ""}/>
-											<label>Secretly looking</label>
-										</div>
+							<div className="ui aligned form">
+								Are you interested in exploring job opportunities?
+								<br/>
+								<br/>
+								<div className="field">
+									<div ref="justLookingRadio" className="ui radio checkbox">
+										<input type="radio" name="frequency" checked={this.state.status == "JL" ? "checked" : ""}/>
+										<label>Yes, looking to switch jobs soon</label>
 									</div>
+								</div>
+								<div className="field">
+									<div ref="secretLookingRadio" className="ui radio checkbox">
+										<input type="radio" name="frequency" checked={this.state.status == "SL" ? "checked" : ""}/>
+										<label>Maybe, if the right one came along</label>
+									</div>
+								</div>
+								<div className="field">
+									<div ref="notInterestedRadio" className="ui radio checkbox">
+										<input type="radio" name="frequency" checked={this.state.status == "NI" ? "checked" : ""}/>
+										<label>Not at all</label>
+									</div>
+								</div>
+								<div id="next-opportunity" ref="next-opportunity">
+									<br/>
+									What are the most important things you're looking for in your next opportunity?
+									<br/>
+									<br/>
 									<div className="field">
-										<div ref="justLookingRadio" className="ui radio checkbox">
-											<input type="radio" name="frequency" checked={this.state.status == "JL" ? "checked" : ""}/>
-											<label>Just looking</label>
-										</div>
+										<textarea rows="2"></textarea>
 									</div>
 								</div>
 							</div>
