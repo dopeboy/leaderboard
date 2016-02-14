@@ -101,6 +101,7 @@ class Candidate(models.Model):
     current_company = models.CharField(max_length=128, blank=True)
     current_title = models.CharField(max_length=256, blank=True)
     list = models.ForeignKey(List)
+    linkedin_url = models.CharField(max_length=256, blank=True, null=True)
     visible = models.BooleanField(default=True)
 
     preclaim_view_seen = models.DateTimeField(blank=True, null=True)
