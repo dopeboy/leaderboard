@@ -38,7 +38,7 @@ class CandidateViewSet(
 
     def get_queryset(self):
         queryset = Candidate.objects.all().filter(
-            user__is_active=True, visible=True).order_by('rank')
+            user__is_active=True, visible=True).order_by('score')
         location = self.request.query_params.get('location', None)
         if location is not None:
             queryset = queryset.filter(list__location=location)

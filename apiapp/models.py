@@ -92,15 +92,25 @@ class List(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.location + ' | ' + self.name
+        return self.name + ' (' + self.location + ')'
+
+
+class Distinction(models.Model):
+    list = models.ForeignKey(List)
+    text = models.CharField(max_length=320)
+
+    def __str__(self):
+        return self.text + ' (' + str(self.list) + ' )'
 
 
 class Candidate(models.Model):
     user = models.OneToOneField(MyUser, unique=True)
-    rank = models.IntegerField()
+    score = models.DecimalField(max_digits=10, decimal_places=7, null=True)
     current_company = models.CharField(max_length=128, blank=True)
     current_title = models.CharField(max_length=256, blank=True)
     list = models.ForeignKey(List)
+    distinctions = models.ManyToManyField('Distinction',
+                                          through='CandidateDistinction')
     linkedin_url = models.CharField(max_length=256, blank=True, null=True)
     visible = models.BooleanField(default=True)
 
@@ -120,12 +130,17 @@ class Candidate(models.Model):
     accomplishments = models.TextField(blank=True, null=True)
 
     class Meta:
-        unique_together = ('rank', 'list')
+        ordering = ['score']
 
     def __str__(self):
         return self.user.first_name + ' ' + self.user.last_name + ', ' \
             + self.current_company + ', ' + self.current_title
 
+
+class CandidateDistinction(models.Model):
+    candidate = models.ForeignKey(Candidate)
+    distinction = models.ForeignKey(Distinction)
+    quantity = models.IntegerField()
 
 JSONEncoder_olddefault = JSONEncoder.default
 

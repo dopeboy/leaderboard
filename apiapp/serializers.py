@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apiapp.models import MyUser, Candidate, List
+from apiapp.models import MyUser, Candidate, List, CandidateDistinction
 from django.core.exceptions import ValidationError
 
 
@@ -24,10 +24,23 @@ class UserSerializer(serializers.ModelSerializer):
 
 class CandidateSerializer(serializers.ModelSerializer):
     user = UserSerializer()
+    distinctions = serializers.SerializerMethodField()
 
     class Meta:
         model = Candidate
-        fields = ('user', 'rank', 'current_company', 'current_title')
+        fields = ('user', 'score', 'current_company', 'current_title',
+                  'distinctions')
+
+    def get_distinctions(self, obj):
+        distinction_data = []
+
+        for d in obj.distinctions.all():
+            x = {"text": d.text, "quantity":
+                 CandidateDistinction.objects.get(
+                     candidate=obj, distinction=d).quantity}
+            distinction_data.append(x)
+
+        return distinction_data
 
 
 class ListSerializer(serializers.ModelSerializer):

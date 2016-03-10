@@ -78,23 +78,35 @@ export default class List extends React.Component {
 					}
 
 					return [
-						<tr id={s.user.user_uuid} className={blurred}>
-							<td>
-								<h1 className="ui center aligned header">{s.rank}</h1>
-							</td>
-							<td className="single line">
-								<h2 className="ui center aligned header">{s.user.first_name + " " + s.user.last_name}</h2>
-							</td>
-							<td className="center aligned">
-								{s.current_company}
-							</td>
-							<td className="center aligned">
-								{s.current_title}
-							</td>
-							<td className="center aligned">
-								{claim_button}
-							</td>
-						</tr>
+                        <tbody>
+                            <tr id={s.user.user_uuid} className={blurred}>
+                                <td>
+                                    <h1 className="ui center aligned header">{s.score}</h1>
+                                </td>
+                                <td className="single line">
+                                    <h2 className="ui center aligned header">{s.user.first_name + " " + s.user.last_name}</h2>
+                                </td>
+                                <td className="center aligned">
+                                    {s.current_company}
+                                </td>
+                                <td className="center aligned">
+                                    {s.current_title}
+                                </td>
+                                <td className="center aligned">
+                                    {s.claim_button}
+                                </td>
+                                <td className="center aligned">
+                                    <a onClick={this.handleDetailsClick.bind(this)} href="#" className="ui button large">Details</a>
+                                </td>
+                            </tr>
+                            <tr id={s.user.user_uuid} className={blurred}>
+                                <td colspan="6">
+                                    <table>
+                                    dsfdsf
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
 					]
 				}.bind(this)))
 	}
@@ -102,6 +114,10 @@ export default class List extends React.Component {
 	handleMethodologyClick(e) {
 		e.preventDefault();
 		$(React.findDOMNode(this.refs.methodologyModal)).modal('show');
+	}
+
+	handleDetailsClick(e) {
+		e.preventDefault();
 	}
 
 	render() { 
@@ -181,12 +197,11 @@ export default class List extends React.Component {
 								<th className="three wide center aligned">Name</th>
 								<th className="four wide center aligned">Employer</th>
 								<th className="four wide center aligned">Title</th>
-								<th className="three wide center aligned"></th>
+								<th className="one wide center aligned"></th>
+								<th className="two wide center aligned"></th>
 							</tr>
 						</thead>
-						<tbody>
-							{this.state.candidates}
-						</tbody>
+                        {this.state.candidates}
 					</table>
 				</div>
 				<br/>
